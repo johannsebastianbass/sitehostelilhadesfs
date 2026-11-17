@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pousada e Hostel da Ilha · Ubatuba, São Francisco do Sul</title>
+<meta name="description" content="Hostel na casa azul do bairro Ubatuba, Ilha de São Francisco do Sul (SC), a 1 km da praia. Beliches e cama de casal, café da manhã, sinuca, quintal com casa da árvore e paredes de lousa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Big+Shoulders+Stencil+Display:wght@800&family=Instrument+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#2f6db8;        /* parede da casa */
+    --azul-fundo:#265d9f;
+    --lousa:#1f2522;       /* paredes de lousa */
+    --giz:#efede4;         /* texto de giz */
+    --sol:#f08a3c;         /* sol pintado na fachada */
+    --sol-claro:#f6c445;
+    --folha:#3e7d4f;       /* placas do jardim */
+    --branco:#ffffff;
+    --texto:#1f2522;
+    --texto-2:#4c5551;
+    --linha:#d9dcd6;
+    --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+    --corpo:"Instrument Sans",system-ui,sans-serif;
+    --giz-mao:"Caveat",cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--corpo);font-size:1.0625rem;line-height:1.6;color:var(--texto);background:var(--branco);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--sol-claro);outline-offset:3px;border-radius:4px}
+  .wrap{width:min(1200px,92vw);margin-inline:auto}
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.92;letter-spacing:.005em}
+  h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+  h3{font-size:1.7rem;line-height:1}
+  p{max-width:62ch}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.5rem;border-radius:999px;font:600 1rem/1 var(--corpo);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
+  .btn-sol{background:var(--sol);color:var(--lousa)}
+  .btn-sol:hover{background:var(--sol-claro)}
+  .btn-linha{border-color:currentColor;background:transparent}
+  .btn-linha:hover{background:rgba(255,255,255,.12)}
+  .btn-wa{background:#1f8f55;color:#fff}
+  .btn-wa:hover{background:#18744a}
+
+  /* ---------- topo ---------- */
+  .topo{position:absolute;inset:0 0 auto 0;z-index:20;color:#fff}
+  .topo .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .marca{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .marca svg{width:46px;height:46px;flex:none}
+  .marca b{font-family:var(--display);font-weight:800;font-size:1.35rem;line-height:.95;display:block}
+  .marca span{font-size:.8rem;opacity:.85}
+  .menu{display:flex;gap:1.8rem;list-style:none;align-items:center}
+  .menu a{text-decoration:none;font-weight:500;font-size:.95rem}
+  .menu a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
+  .menu .btn{padding:.65rem 1.1rem}
+  .abrir-menu{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+  .abrir-menu span{display:block;height:2px;background:currentColor;margin:6px 8px}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--azul);color:#fff;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:min(100vh,900px)}
+  .hero-texto{padding:150px 0 70px max(4vw,calc((100vw - 1200px)/2));padding-right:3.5rem;display:flex;flex-direction:column;justify-content:flex-end}
+  .hero h1{font-size:clamp(3.6rem,7.6vw,7.6rem);line-height:.84;text-transform:uppercase;font-weight:900;letter-spacing:-.005em}
+  .hero h1 .sol-linha{display:block;color:var(--sol-claro)}
+  .hero p{font-size:1.15rem;margin:1.6rem 0 2.2rem;max-width:40ch;color:#e3edf8}
+  .hero-acoes{display:flex;gap:.8rem;flex-wrap:wrap}
+  .hero-foto{position:relative;overflow:hidden}
+  .hero-foto::before{content:"";position:absolute;inset:0 0 auto 0;height:140px;background:linear-gradient(rgba(31,37,34,.55),transparent);z-index:1;pointer-events:none}
+  .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:35% 60%}
+  .hero-foto figcaption{position:absolute;right:1rem;bottom:1rem;font-size:.8rem;color:#fff;background:rgba(31,37,34,.55);padding:.3rem .7rem;border-radius:999px}
+
+  /* ---------- reserva ---------- */
+  .reserva{background:var(--lousa);color:var(--giz);padding:2.2rem 0}
+  .reserva form{display:grid;grid-template-columns:1.1fr 1fr 1fr .9fr 1.2fr auto;gap:1.2rem;align-items:end}
+  .reserva h2{font-size:2rem;line-height:.95;color:#fff}
+  .campo label{display:block;font-size:.85rem;color:#b9bfb8;margin-bottom:.35rem}
+  .campo input,.campo select{width:100%;background:transparent;border:0;border-bottom:2px solid #59615c;color:#fff;font:500 1rem var(--corpo);padding:.45rem 0;border-radius:0;color-scheme:dark}
+  .campo input:focus,.campo select:focus{outline:none;border-bottom-color:var(--sol-claro)}
+  .campo select option{color:var(--texto)}
+  .reserva .nota{grid-column:1/-1;font-size:.88rem;color:#a9b0a9;margin-top:-.2rem}
+
+  /* ---------- a casa ---------- */
+  .casa{padding:120px 0 100px}
+  .casa-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4.5rem;align-items:start}
+  .casa h2{margin-bottom:1.6rem}
+  .casa p{color:var(--texto-2);margin-bottom:1rem}
+  .itens{list-style:none;columns:2;column-gap:2rem;margin-top:2rem}
+  .itens li{break-inside:avoid;padding:.7rem 0 .7rem 1.6rem;border-top:1px solid var(--linha);position:relative;font-weight:500}
+  .itens li::before{content:"";position:absolute;left:0;top:1.05rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--sol)}
+  .itens li small{display:block;font-weight:400;color:var(--texto-2);font-size:.9rem}
+  .casa-fotos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .casa-fotos figure:first-child{grid-row:span 2}
+  .foto{position:relative;overflow:hidden;background:#e9ece6;cursor:zoom-in}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .legenda{font-size:.88rem;color:var(--texto-2);margin-top:.5rem}
+  .casa-fotos .foto{border-radius:6px}
+  .casa-fotos .alta{aspect-ratio:9/16}
+  .casa-fotos .baixa{aspect-ratio:4/3}
+
+  /* ---------- quarto ---------- */
+  .quarto{padding:20px 0 120px}
+  .quarto-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:3.5rem;align-items:start}
+  .quarto-principal{aspect-ratio:4/3;border-radius:6px}
+  .quarto-mini{display:grid;grid-template-columns:1.6fr 1fr;grid-auto-rows:clamp(150px,18vw,230px);gap:1rem;margin-top:1rem}
+  .quarto-mini .foto{border-radius:6px;height:100%}
+  .quarto h2{margin-bottom:1.2rem}
+  .quarto-texto > p{color:var(--texto-2);margin-bottom:2rem}
+  .opcoes{list-style:none;border-top:2px solid var(--texto)}
+  .opcao{display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--linha)}
+  .opcao h3{font-size:1.6rem}
+  .opcao p{font-size:.92rem;color:var(--texto-2);grid-column:1}
+  .opcao .preco{grid-column:2;grid-row:1;text-align:right;font-family:var(--display);font-weight:800;font-size:1.35rem}
+  .opcao button{grid-column:2;grid-row:2;justify-self:end;background:none;border:0;font:600 .95rem var(--corpo);color:var(--azul);cursor:pointer;text-decoration:underline;text-underline-offset:4px;padding:.2rem 0}
+  .opcao button:hover{color:var(--sol)}
+
+  /* ---------- espaços ---------- */
+  .espacos{background:var(--azul);color:#fff;padding:110px 0}
+  .espacos-topo{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+  .espacos-topo p{color:#dce8f6;max-width:44ch}
+  .mosaico{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:220px;gap:12px}
+  .mosaico .foto{border-radius:4px}
+  .mosaico figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1rem .8rem;background:linear-gradient(transparent,rgba(20,26,24,.72));font-size:.92rem;font-weight:500}
+  .m-varanda{grid-column:1/9;grid-row:span 2}
+  .m-arvore{grid-column:9/13;grid-row:span 3}
+  .m-deck{grid-column:1/5}
+  .m-cafe{grid-column:5/9}
+  .m-jardim{grid-column:1/7;grid-row:span 1}
+  .m-sala{grid-column:7/13}
+
+  /* ---------- mural (o momento) ---------- */
+  .mural{background:var(--lousa);color:var(--giz);padding:120px 0;position:relative;overflow:hidden}
+  .mural::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 15% 20%,rgba(255,255,255,.05),transparent 70%),radial-gradient(50% 40% at 85% 75%,rgba(255,255,255,.04),transparent 70%);pointer-events:none}
+  .mural .wrap{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:4rem;align-items:center}
+  .mural h2{font-family:var(--giz-mao);font-weight:700;font-size:clamp(3.4rem,7.5vw,6.4rem);line-height:.88;letter-spacing:0;color:#fff;transform:rotate(-2deg);margin-bottom:1.8rem}
+  .mural .intro{color:#c3c8c1;margin-bottom:2.4rem}
+  .recados{position:relative;min-height:300px}
+  .recado{position:absolute;font-family:var(--giz-mao);font-weight:600;line-height:1;white-space:nowrap;opacity:0;transition:opacity .9s ease}
+  .mural.ver .recado{opacity:.95}
+  .recado:nth-child(1){left:0;top:0;font-size:2.4rem;transform:rotate(-4deg);color:var(--sol-claro)}
+  .recado:nth-child(2){left:44%;top:12%;font-size:2rem;transform:rotate(3deg);color:#a9d3f2;transition-delay:.25s}
+  .recado:nth-child(3){left:4%;top:34%;font-size:2.1rem;transform:rotate(2deg);color:#f2a7b8;transition-delay:.5s}
+  .recado:nth-child(4){left:52%;top:46%;font-size:2.5rem;transform:rotate(-3deg);color:#fff;transition-delay:.75s}
+  .recado:nth-child(5){left:0;top:68%;font-size:1.9rem;transform:rotate(-1deg);color:#b9e0b0;transition-delay:1s}
+  .recado:nth-child(6){left:46%;top:82%;font-size:2.2rem;transform:rotate(4deg);color:var(--sol);transition-delay:1.25s}
+  .mural-fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mural-fotos .foto{border-radius:4px}
+  .mural-fotos .alta{grid-row:span 2;aspect-ratio:9/16}
+  .mural-fotos .baixa{aspect-ratio:1/1}
+  .mural-fotos figcaption{position:absolute;left:.6rem;bottom:.6rem;font-family:var(--giz-mao);font-size:1.35rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+
+  /* ---------- ao redor ---------- */
+  .redor{padding:120px 0}
+  .redor-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4.5rem;align-items:start}
+  .redor h2{margin-bottom:1.2rem}
+  .redor-intro{color:var(--texto-2);margin-bottom:2rem}
+  .lista-praias{list-style:none;border-top:2px solid var(--texto)}
+  .lista-praias li{display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;padding:.95rem 0;border-bottom:1px solid var(--linha)}
+  .lista-praias b{font-family:var(--display);font-size:1.45rem;font-weight:800;line-height:1.05}
+  .lista-praias span{font-size:.92rem;color:var(--texto-2)}
+  .lista-praias em{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font-weight:600;color:var(--azul);white-space:nowrap;text-align:right}
+  .endereco{margin-top:1rem}
+  .endereco .foto{border-radius:6px;aspect-ratio:4/3}
+  .mapa iframe{display:block;width:100%;aspect-ratio:4/3;border:0;border-radius:6px;background:#e9ece6}
+  .endereco address{font-style:normal;font-size:1.05rem;margin:1.2rem 0 1.2rem}
+  .endereco address b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:800}
+
+  /* ---------- dúvidas ---------- */
+  .duvidas{padding:0 0 120px}
+  .duvidas-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:4rem;border-top:2px solid var(--texto);padding-top:3rem}
+  details{border-bottom:1px solid var(--linha)}
+  summary{cursor:pointer;list-style:none;padding:1.1rem 2.5rem 1.1rem 0;font-weight:600;font-size:1.08rem;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:.4rem;top:50%;width:12px;height:12px;border-right:2px solid var(--texto);border-bottom:2px solid var(--texto);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{padding:0 0 1.2rem;color:var(--texto-2)}
+
+  /* ---------- final ---------- */
+  .final{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;isolation:isolate}
+  .final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-2}
+  .final::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,37,34,.86),rgba(31,37,34,.5) 55%,rgba(31,37,34,.1));z-index:-1}
+  .final .wrap{padding:90px 0}
+  .final h2{max-width:13ch;margin-bottom:1.2rem}
+  .final p{color:#e2e6e0;margin-bottom:2rem;max-width:46ch}
+
+  footer{background:var(--lousa);color:#b9bfb8;padding:56px 0 34px;font-size:.95rem}
+  .rodape{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+  footer h3{color:#fff;font-size:1.4rem;margin-bottom:.8rem}
+  footer ul{list-style:none}
+  footer li{margin-bottom:.4rem}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--sol-claro)}
+  .rodape-fim{border-top:1px solid #39413c;margin-top:2.5rem;padding-top:1.2rem;font-size:.85rem}
+
+  .wa-fixo{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#1f8f55;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+  /* janelas */
+  .janela{position:fixed;inset:0;background:rgba(20,26,24,.6);display:none;align-items:center;justify-content:center;padding:1rem;z-index:100}
+  .janela.aberta{display:flex}
+  .janela-caixa{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:2rem}
+  .janela-caixa h3{font-size:2rem;margin-bottom:.4rem}
+  .resumo{margin:1.2rem 0 1.4rem;border-top:2px solid var(--texto)}
+  .resumo div{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--linha);font-size:.96rem}
+  .resumo div span{color:var(--texto-2)}
+  .janela-acoes{display:flex;gap:.6rem;flex-wrap:wrap}
+  .janela-acoes .btn-linha{color:var(--texto)}
+  .fechar{float:right;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;color:var(--texto)}
+  .aviso{font-size:.85rem;color:var(--texto-2);margin-top:.8rem}
+
+  .ampliada{position:fixed;inset:0;background:rgba(14,18,16,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;z-index:110;padding:4vh 4vw}
+  .ampliada.aberta{display:flex}
+  .ampliada img{max-width:100%;max-height:82vh;border-radius:6px}
+  .ampliada p{color:#dfe3dc;font-size:.95rem}
+  .amp-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;cursor:pointer}
+  .amp-fechar{top:16px;right:16px}.amp-ant{left:14px;top:50%}.amp-prox{right:14px;top:50%}
+
+  @media (max-width:1000px){
+    .menu{position:fixed;inset:84px 0 auto 0;background:var(--lousa);flex-direction:column;align-items:flex-start;padding:1.6rem 4vw 2rem;gap:1.1rem;display:none}
+    .menu.aberto{display:flex}
+    .abrir-menu{display:block}
+    .hero{grid-template-columns:1fr;min-height:0}
+    .hero-foto{order:-1;height:62vh;min-height:380px}
+    .hero-texto{padding:2.4rem 4vw 3rem}
+    .reserva form{grid-template-columns:1fr 1fr}
+    .reserva h2,.reserva .btn,.reserva .nota{grid-column:1/-1}
+    .casa-grid,.quarto-grid,.redor-grid,.mural .wrap,.duvidas-grid{grid-template-columns:1fr;gap:2.6rem}
+    .mosaico{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+    .m-varanda{grid-column:1/3;grid-row:span 1}
+    .m-arvore{grid-column:2;grid-row:span 2}
+    .m-deck{grid-column:1}.m-cafe{grid-column:1}
+    .m-jardim{grid-column:1/3}.m-sala{grid-column:1/3}
+    .rodape{grid-template-columns:1fr}
+    .casa,.redor,.mural,.espacos{padding:80px 0}
+  }
+  @media (max-width:560px){
+    .itens{columns:1}
+    .recados{min-height:340px}
+    .recado:nth-child(n){position:static;display:block;margin:.4rem 0 .8rem;opacity:.95}
+    .recados{min-height:0}
+    .mural h2{font-size:3.3rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.recado{opacity:.95}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="#f6c445"/>
+      <path d="M2 32a30 30 0 0 1 60 0z" fill="#f08a3c"/>
+      <path d="M36 6 C30 18 26 32 25 46 L29 46 C31 32 35 18 39 7z" fill="#c9462c"/>
+      <path d="M34 6.5 C28.5 18 25.5 31 24.6 42" stroke="#fff3d6" stroke-width="1.6" fill="none"/>
+      <path d="M4 46c4-4 8-4 12 0s8 4 12 0 8-4 12 0 8 4 12 0 6-3 8-1v3H4z" fill="#fff"/>
+      <path d="M8 53c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8 3 12 0" stroke="#2f6db8" stroke-width="2.4" fill="none"/>
+    </symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4z"/></symbol>
+  </defs>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a href="#inicio" class="marca" aria-label="Pousada e Hostel da Ilha, início">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span><b>Hostel da Ilha</b>São Francisco do Sul</span>
+    </a>
+    <button class="abrir-menu" id="abrirMenu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#casa">A casa</a></li>
+      <li><a href="#quarto">Quarto</a></li>
+      <li><a href="#espacos">Espaços</a></li>
+      <li><a href="#redor">Praias e endereço</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a href="#reservar" class="btn btn-sol">Reservar</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- hero -->
+<section class="hero" id="inicio">
+  <div class="hero-texto">
+    <h1>A casa azul <span class="sol-linha">de Ubatuba</span></h1>
+    <p>Hostel na Ilha de São Francisco do Sul, a 1 km da praia. Beliche ou cama de casal, café da manhã, sinuca no quintal e uma parede de lousa esperando o seu recado.</p>
+    <div class="hero-acoes">
+      <a href="#reservar" class="btn btn-sol">Escolher datas</a>
+      <a href="#quarto" class="btn btn-linha">Ver o quarto</a>
+    </div>
+  </div>
+  <figure class="hero-foto">
+    <img src="fotos/fachada.jpg" alt="Fachada azul do hostel, com sacada branca, o sol pintado na parede e a rede na varanda da sinuca" fetchpriority="high">
+    <figcaption>R. Agronômica, 195</figcaption>
+  </figure>
+</section>
+
+<!-- reserva -->
+<section class="reserva" id="reservar" aria-labelledby="titReserva">
+  <form class="wrap" id="formReserva" novalidate>
+    <h2 id="titReserva">Quando você vem?</h2>
+    <div class="campo"><label for="entrada">Chegada</label><input type="date" id="entrada" required></div>
+    <div class="campo"><label for="saida">Saída</label><input type="date" id="saida" required></div>
+    <div class="campo"><label for="pessoas">Pessoas</label>
+      <select id="pessoas"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5 ou mais</option></select></div>
+    <div class="campo"><label for="cama">Onde dormir</label><select id="cama"></select></div>
+    <button type="submit" class="btn btn-sol">Consultar no WhatsApp</button>
+    <p class="nota">A reserva é feita direto com a casa, sem taxa de plataforma.</p>
+  </form>
+</section>
+
+<!-- a casa -->
+<section class="casa" id="casa">
+  <div class="wrap casa-grid">
+    <div>
+      <h2>Casa de praia que já recebeu meio mundo</h2>
+      <p>Um sobrado azul com sacada, deck de madeira e quintal à sombra das amendoeiras, no bairro Ubatuba. A areia fica a uns 13 minutos a pé; padaria, mercado e restaurantes ficam no caminho.</p>
+      <p>Por dentro as paredes são de lousa. Viajantes do Brasil, da Argentina, do Uruguai e da Europa já deixaram desenhos e recados por lá, e o giz fica à disposição.</p>
+      <ul class="itens">
+        <li>Café da manhã<small>Pão, bolo, frios e café</small></li>
+        <li>Cozinha liberada<small>Fogão, forno, micro e geladeira</small></li>
+        <li>Wi-Fi<small>Em toda a casa</small></li>
+        <li>Sinuca e dardos<small>Na varanda coberta</small></li>
+        <li>Quintal e churrasqueira<small>Com casa da árvore</small></li>
+        <li>Estacionamento<small>Grátis, dentro do terreno</small></li>
+      </ul>
+    </div>
+    <div class="casa-fotos">
+      <figure><div class="foto alta"><img src="fotos/pergolado.jpg" alt="Pergolado de madeira com sofá e almofadas coloridas ao lado da parede azul" loading="lazy"></div><figcaption class="legenda">O pergolado, para a sesta da tarde</figcaption></figure>
+      <figure><div class="foto baixa"><img src="fotos/sala.jpg" alt="Sala com paredes azuis, sofás bege e mesa de centro pintada com uma tartaruga" loading="lazy"></div><figcaption class="legenda">Sala de estar</figcaption></figure>
+      <figure><div class="foto baixa"><img src="fotos/cafe.jpg" alt="Café da manhã com pão, bolo, frios e garrafas de café sobre bancada" loading="lazy"></div><figcaption class="legenda">Café da manhã</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- quarto -->
+<section class="quarto" id="quarto">
+  <div class="wrap quarto-grid">
+    <div>
+      <figure class="foto quarto-principal"><img src="fotos/quarto.jpg" alt="Quarto com beliche de madeira, cama de casal, arara para roupas e janela em arco" loading="lazy"></figure>
+      <div class="quarto-mini">
+        <figure class="foto"><img src="fotos/beliches.jpg" alt="Quarto compartilhado com quatro beliches de madeira" loading="lazy"></figure>
+        <figure class="foto vert"><img src="fotos/banheiro.jpg" alt="Banheiro com duas pias e box" loading="lazy"></figure>
+      </div>
+    </div>
+    <div class="quarto-texto">
+      <h2>Quarto compartilhado, do jeito hostel</h2>
+      <p>Beliches de madeira e cama de casal nos mesmos quartos amplos, com roupa de cama inclusa e banheiro compartilhado. Venha sozinho, a dois ou com a turma toda.</p>
+      <ul class="opcoes" id="opcoes"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- espaços -->
+<section class="espacos" id="espacos">
+  <div class="wrap">
+    <div class="espacos-topo">
+      <h2>Onde a galera se encontra</h2>
+      <p>A vida da casa acontece da varanda pra fora: sinuca, deck, quintal e uma casa da árvore no meio das amendoeiras.</p>
+    </div>
+    <div class="mosaico">
+      <figure class="foto m-varanda"><img src="fotos/varanda-sinuca.jpg" alt="Varanda coberta com paredes de lousa, mesa de sinuca e alvo de dardos" loading="lazy"><figcaption>Varanda da sinuca</figcaption></figure>
+      <figure class="foto m-arvore"><img src="fotos/casa-da-arvore.jpg" alt="Casa da árvore de madeira com escada, entre as folhas da amendoeira" loading="lazy"><figcaption>Casa da árvore</figcaption></figure>
+      <figure class="foto m-deck"><img src="fotos/deck.jpg" alt="Deck de madeira com mesa comprida sob o pergolado" loading="lazy"><figcaption>Deck</figcaption></figure>
+      <figure class="foto m-cafe"><img src="fotos/fachada-arvore.jpg" alt="Entrada da casa azul com plantas e rede na varanda" loading="lazy"><figcaption>Entrada</figcaption></figure>
+      <figure class="foto m-jardim"><img src="fotos/jardim.jpg" alt="Mesas brancas no quintal de pedriscos, à sombra das amendoeiras" loading="lazy"><figcaption>Quintal</figcaption></figure>
+      <figure class="foto m-sala"><img src="fotos/noite.jpg" alt="Varanda de lousa à noite, com rede, sinuca e luz baixa" loading="lazy"><figcaption>A varanda à noite</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- mural -->
+<section class="mural" id="mural">
+  <div class="wrap">
+    <div>
+      <h2>Deixe seu recado na parede</h2>
+      <p class="intro">Cada hóspede escreve alguma coisa antes de ir embora. Alguns recados já estão nas paredes:</p>
+      <div class="recados" aria-label="Recados escritos por hóspedes">
+        <span class="recado">Por onde for, floresça</span>
+        <span class="recado">All you need is love</span>
+        <span class="recado">Tudo aqui começou com um sonho</span>
+        <span class="recado">Viva o agora</span>
+        <span class="recado">Sonhar é preciso</span>
+        <span class="recado">Volto ano que vem!</span>
+      </div>
+    </div>
+    <div class="mural-fotos">
+      <figure class="foto alta"><img src="fotos/astronauta.jpg" alt="Desenho de giz de um astronauta e de Saturno feito por hóspedes na parede de lousa" loading="lazy"><figcaption>Mural de giz</figcaption></figure>
+      <figure class="foto baixa"><img src="fotos/mural.jpg" alt="Parede de lousa coberta de desenhos e frases de hóspedes" loading="lazy"></figure>
+      <figure class="foto baixa"><img src="fotos/placas.jpg" alt="Placas coloridas no jardim: alegria, gratidão, harmonia, amor e paz" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ao redor -->
+<section class="redor" id="redor">
+  <div class="wrap redor-grid">
+    <div>
+      <h2>A praia fica logo ali</h2>
+      <p class="redor-intro">O bairro Ubatuba fica no lado de mar aberto da ilha. Dá pra fazer quase tudo a pé ou de bicicleta.</p>
+      <ul class="lista-praias">
+        <li><b>Praia de Ubatuba</b><span>Faixa larga de areia e mar aberto</span><em>~1 km a pé</em></li>
+        <li><b>Praia da Enseada</b><span>Mar mais calmo, calçadão e quiosques</span><em>de bike</em></li>
+        <li><b>Prainha</b><span>A praia do surf na ilha</span><em>de bike</em></li>
+        <li><b>Forte Marechal Luz</b><span>Fortificação histórica com vista da baía</span><em>de bike</em></li>
+        <li><b>Itaguaçu e Capri</b><span>Praias mais tranquilas</span><em>de carro</em></li>
+        <li><b>Centro Histórico</b><span>Casario colonial e Museu Nacional do Mar</span><em>~11 km</em></li>
+      </ul>
+    </div>
+    <div class="endereco">
+      <div class="mapa" id="mapa">
+        <figure class="foto" id="mapaReserva"><img src="fotos/aerea.jpg" alt="Vista aérea da casa azul de telhado laranja na esquina, com o quintal arborizado" loading="lazy"></figure>
+      </div>
+      <address><b>R. Agronômica, 195</b>Ubatuba, São Francisco do Sul (SC), 89240-000</address>
+      <a class="btn btn-sol" id="linkMapa" href="#" target="_blank" rel="noopener">Abrir no Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- dúvidas -->
+<section class="duvidas" id="duvidas">
+  <div class="wrap duvidas-grid">
+    <h2>Dúvidas</h2>
+    <div>
+      <details><summary>Qual o horário de entrada e saída?</summary><p>Entrada a partir das 14h e saída até as 12h. Se precisar, a gente guarda a sua bagagem.</p></details>
+      <details><summary>Como é o quarto?</summary><p>Os quartos são compartilhados, com beliches e cama de casal. Dá pra reservar uma cama, a cama de casal ou o quarto inteiro para o seu grupo.</p></details>
+      <details><summary>O café da manhã está incluso?</summary><p>Sim. Pão, bolo, frios, manteiga e café, servidos na cozinha.</p></details>
+      <details><summary>Posso usar a cozinha?</summary><p>Pode. A cozinha é compartilhada e tem fogão, forno, micro-ondas e geladeira. Só pedimos que deixe tudo limpo depois de usar.</p></details>
+      <details><summary>Tem estacionamento?</summary><p>Tem, gratuito e dentro do terreno.</p></details>
+      <details><summary>E se eu precisar cancelar?</summary><p>O cancelamento é gratuito com pelo menos 48 horas de antecedência. Em feriados nacionais, Réveillon e Carnaval, cobramos 50% antecipado, sem reembolso.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- final -->
+<section class="final">
+  <img src="fotos/placas-fe.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <h2>Bons amigos e muito amor no coração</h2>
+    <p>É o que diz a placa na frente da casa. Manda uma mensagem com as suas datas e a gente responde com a disponibilidade e o valor.</p>
+    <a class="btn btn-wa" id="waFinal" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rodape">
+      <div><h3>Pousada e Hostel da Ilha</h3><p>Hostel no bairro Ubatuba, Ilha de São Francisco do Sul, Santa Catarina.</p></div>
+      <div><h3>Contato</h3><ul><li>WhatsApp <span data-cfg="telefoneFmt"></span></li><li data-cfg="email"></li><li>R. Agronômica, 195, Ubatuba</li></ul></div>
+      <div><h3>Também no</h3><ul><li><a id="mapaRodape" href="#" target="_blank" rel="noopener">Google Maps</a></li><li><a href="https://www.hostelworld.com/br/hostels/p/70769/hostel-da-ilha-de-sao-francisco-do-sul/" target="_blank" rel="noopener">Hostelworld</a></li><li><a id="instagram" href="#" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    <p class="rodape-fim">© <span id="ano"></span> Pousada e Hostel da Ilha de São Francisco do Sul</p>
+  </div>
+</footer>
+
+<a class="wa-fixo" id="waFixo" href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<div class="janela" id="janela" role="dialog" aria-modal="true" aria-labelledby="titJanela">
+  <div class="janela-caixa">
+    <button class="fechar" id="fecharJanela" aria-label="Fechar">×</button>
+    <h3 id="titJanela">Confira o seu pedido</h3>
+    <p class="aviso" style="margin-top:0">A casa responde pelo WhatsApp com a disponibilidade e o valor.</p>
+    <div class="resumo" id="resumo"></div>
+    <div class="janela-acoes">
+      <a class="btn btn-wa" id="enviarWa" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-wa"/></svg>Enviar no WhatsApp</a>
+      <button class="btn btn-linha" id="copiar" type="button">Copiar mensagem</button>
+    </div>
+    <p class="aviso" id="avisoCopia" role="status"></p>
+  </div>
+</div>
+
+<div class="ampliada" id="ampliada" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="amp-btn amp-fechar" id="ampFechar" aria-label="Fechar">×</button>
+  <button class="amp-btn amp-ant" id="ampAnt" aria-label="Foto anterior">‹</button>
+  <img id="ampImg" alt="">
+  <p id="ampLegenda"></p>
+  <button class="amp-btn amp-prox" id="ampProx" aria-label="Próxima foto">›</button>
+</div>
+
+<script>
+/* ============ CONFIGURAÇÃO (confirmar com a casa) ============ */
+const CONFIG = {
+  whatsapp: "5547999608363",
+  telefoneFmt: "(47) 99960-8363",
+  email: "",
+  instagram: "https://instagram.com/",
+  mapa: "https://maps.app.goo.gl/VhLRPrx7QUJ9mg3p6"
+};
+/* preco: null mostra "Consulte" */
+const OPCOES = [
+  { id:"beliche", nome:"Cama no beliche", texto:"Para quem viaja sozinho", preco:null, unidade:"por pessoa, por noite", conta:"pessoa" },
+  { id:"casal",   nome:"Cama de casal",   texto:"Para duas pessoas, no quarto compartilhado", preco:null, unidade:"por noite", conta:"fixo" },
+  { id:"grupo",   nome:"Quarto inteiro",  texto:"Para grupos e famílias", preco:null, unidade:"por noite", conta:"fixo" }
+];
+
+/* ============ montagem ============ */
+const $ = id => document.getElementById(id);
+const reais = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+$("opcoes").innerHTML = OPCOES.map(o => `
+  <li class="opcao">
+    <h3>${o.nome}</h3>
+    <span class="preco">${o.preco ? reais(o.preco) : "Consulte"}</span>
+    <p>${o.texto}${o.preco ? `, ${o.unidade}` : ""}</p>
+    <button type="button" data-opcao="${o.id}">Reservar ${o.nome.toLowerCase()}</button>
+  </li>`).join("");
+$("cama").innerHTML = OPCOES.map(o => `<option value="${o.id}">${o.nome}</option>`).join("");
+
+document.querySelectorAll("[data-cfg]").forEach(el => { const v = CONFIG[el.dataset.cfg]; if (v) el.textContent = v; else el.remove(); });
+$("ano").textContent = new Date().getFullYear();
+$("instagram").href = CONFIG.instagram;
+$("linkMapa").href = $("mapaRodape").href = CONFIG.mapa;
+const waBase = "https://wa.me/" + CONFIG.whatsapp + "?text=";
+const msgGeral = encodeURIComponent("Olá! Vi o site do Hostel da Ilha e queria saber da disponibilidade 🙂");
+["waFinal","waFixo"].forEach(id => $(id).href = waBase + msgGeral);
+
+/* mapa do Google: embutido quando o site está no domínio próprio.
+   Dentro de pré-visualizações (iframe) fica a foto aérea. */
+if (window.self === window.top) {
+  const f = document.createElement("iframe");
+  f.src = "https://www.google.com/maps?q=" + encodeURIComponent("Pousada e Hostel da Ilha de São Francisco do Sul, R. Agronômica, 195, Ubatuba, São Francisco do Sul - SC") + "&output=embed";
+  f.title = "Mapa do Google com a localização do hostel";
+  f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
+  $("mapa").replaceChildren(f);
+}
+
+/* menu */
+$("abrirMenu").addEventListener("click", () => { const a = $("menu").classList.toggle("aberto"); $("abrirMenu").setAttribute("aria-expanded", a); });
+$("menu").querySelectorAll("a").forEach(a => a.addEventListener("click", () => $("menu").classList.remove("aberto")));
+
+/* datas */
+const iso = d => d.toISOString().slice(0,10);
+const hoje = new Date();
+$("entrada").min = iso(hoje); $("entrada").value = iso(hoje);
+$("saida").min = iso(new Date(hoje.getTime()+864e5)); $("saida").value = iso(new Date(hoje.getTime()+2*864e5));
+$("entrada").addEventListener("change", () => {
+  const e = new Date($("entrada").value), min = new Date(e.getTime()+864e5);
+  $("saida").min = iso(min); if (new Date($("saida").value) <= e) $("saida").value = iso(min);
+});
+
+/* pedido */
+const br = s => s.split("-").reverse().join("/");
+let mensagem = "";
+function abrirPedido(){
+  const e = $("entrada").value, s = $("saida").value;
+  if (!e || !s || new Date(s) <= new Date(e)) { $("saida").focus(); return; }
+  const noites = Math.round((new Date(s) - new Date(e)) / 864e5);
+  const op = OPCOES.find(o => o.id === $("cama").value);
+  const n = parseInt($("pessoas").value, 10);
+  const pessoas = n === 5 ? "5 ou mais" : String(n);
+  const total = op.preco ? (op.conta === "pessoa" ? op.preco * n * noites : op.preco * noites) : null;
+  $("resumo").innerHTML = `
+    <div><span>Onde dormir</span><b>${op.nome}</b></div>
+    <div><span>Datas</span><b>${br(e)} a ${br(s)}</b></div>
+    <div><span>Noites</span><b>${noites}</b></div>
+    <div><span>Pessoas</span><b>${pessoas}</b></div>
+    ${total ? `<div><span>Estimativa</span><b>${reais(total)}</b></div>` : ""}`;
+  mensagem = `Olá! Queria reservar no Hostel da Ilha:\n\n${op.nome}\n${br(e)} a ${br(s)} (${noites} noite${noites>1?"s":""})\n${pessoas} pessoa${n>1?"s":""}${total?`\nEstimativa do site: ${reais(total)}`:""}\n\nTem vaga?`;
+  $("enviarWa").href = waBase + encodeURIComponent(mensagem);
+  $("avisoCopia").textContent = "";
+  $("janela").classList.add("aberta");
+  $("fecharJanela").focus();
+}
+$("formReserva").addEventListener("submit", ev => { ev.preventDefault(); abrirPedido(); });
+document.querySelectorAll("[data-opcao]").forEach(b => b.addEventListener("click", () => { $("cama").value = b.dataset.opcao; abrirPedido(); }));
+$("fecharJanela").addEventListener("click", () => $("janela").classList.remove("aberta"));
+$("janela").addEventListener("click", ev => { if (ev.target.id === "janela") $("janela").classList.remove("aberta"); });
+$("copiar").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(mensagem); $("avisoCopia").textContent = "Mensagem copiada."; }
+  catch { $("avisoCopia").textContent = "Não deu para copiar. Use o botão do WhatsApp."; }
+});
+
+/* fotos ampliadas */
+const fotos = [...document.querySelectorAll("main .foto img")];
+let atual = 0;
+const mostrar = () => { $("ampImg").src = fotos[atual].getAttribute("src"); $("ampImg").alt = fotos[atual].alt; $("ampLegenda").textContent = fotos[atual].alt; };
+fotos.forEach((img,i) => {
+  const alvo = img.closest(".foto");
+  alvo.tabIndex = 0; alvo.setAttribute("role","button"); alvo.setAttribute("aria-label","Ampliar foto: " + img.alt);
+  const abrir = () => { atual = i; mostrar(); $("ampliada").classList.add("aberta"); $("ampFechar").focus(); };
+  alvo.addEventListener("click", abrir);
+  alvo.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
+});
+$("ampFechar").addEventListener("click", () => $("ampliada").classList.remove("aberta"));
+$("ampAnt").addEventListener("click", () => { atual = (atual - 1 + fotos.length) % fotos.length; mostrar(); });
+$("ampProx").addEventListener("click", () => { atual = (atual + 1) % fotos.length; mostrar(); });
+$("ampliada").addEventListener("click", ev => { if (ev.target.id === "ampliada") $("ampliada").classList.remove("aberta"); });
+document.addEventListener("keydown", ev => {
+  if (ev.key === "Escape") { $("janela").classList.remove("aberta"); $("ampliada").classList.remove("aberta"); }
+  if ($("ampliada").classList.contains("aberta")) { if (ev.key === "ArrowRight") $("ampProx").click(); if (ev.key === "ArrowLeft") $("ampAnt").click(); }
+});
+
+/* o único momento animado: os recados aparecem quando o mural entra na tela */
+const mural = $("mural");
+if ("IntersectionObserver" in window) {
+  const ob = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { mural.classList.add("ver"); ob.disconnect(); } }), {threshold:.35});
+  ob.observe(mural);
+} else mural.classList.add("ver");
+</script>
+</body>
+</html>
